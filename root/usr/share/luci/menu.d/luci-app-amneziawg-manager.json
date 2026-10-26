@@ -1,0 +1,18 @@
+{
+	"admin/vpn": {
+		"title": "VPN",
+		"order": 55,
+		"action": { "type": "firstchild" }
+	},
+	"admin/vpn/amneziawg-manager": {
+		"title": "AmneziaWG Manager",
+		"order": 20,
+		"action": {
+			"type": "view",
+			"path": "amneziawg-manager/manager"
+		},
+		"depends": {
+			"acl": [ "luci-app-amneziawg-manager" ]
+		}
+	}
+}

@@ -1,0 +1,5 @@
+#!/bin/sh
+mkdir -p /etc/amneziawg/configs
+chmod 700 /etc/amneziawg /etc/amneziawg/configs
+rm -f /tmp/luci-indexcache* 2>/dev/null
+exit 0

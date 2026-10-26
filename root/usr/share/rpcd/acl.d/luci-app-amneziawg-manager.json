@@ -1,0 +1,30 @@
+{
+	"luci-app-amneziawg-manager": {
+		"description": "Grant access to AmneziaWG Manager",
+		"read": {
+			"file": {
+				"/etc/amneziawg/configs": [ "list" ],
+				"/etc/amneziawg/configs/*": [ "read" ],
+				"/usr/bin/awg": [ "exec" ]
+			},
+			"ubus": {
+				"network.interface": [ "dump" ]
+			},
+			"uci": [ "network", "firewall" ]
+		},
+		"write": {
+			"file": {
+				"/etc/amneziawg/configs/*": [ "write" ],
+				"/bin/mkdir": [ "exec" ],
+				"/sbin/ifup": [ "exec" ],
+				"/sbin/ifdown": [ "exec" ],
+				"/etc/init.d/firewall": [ "exec" ]
+			},
+			"ubus": {
+				"network": [ "reload" ],
+				"uci": [ "commit", "revert" ]
+			},
+			"uci": [ "network", "firewall" ]
+		}
+	}
+}
